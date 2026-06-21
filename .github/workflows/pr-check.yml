@@ -1,0 +1,16 @@
+name: PR pipeline
+
+on:
+  pull_request:
+    types: [opened,synchronize] 
+    braches: 
+      - main
+
+jobs:
+
+  PR-check  
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: PR check for main branch
+        run: echo "PR check running for branch: " ${{ github.head_ref }}
