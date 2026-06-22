@@ -4,7 +4,8 @@
 name: matrix workflow
 
 on:
-  push:
+  #push:
+  workflow_dispatch:
 
 jobs:
   install-python-and-print-python-version:

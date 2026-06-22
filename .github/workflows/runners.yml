@@ -23,9 +23,18 @@ jobs:
       - name: runners hostname
         run: hostname
 
-      - name: 
+      - name: current user logged in
         run: | 
          echo "The current user running the job is: ${{ github.actor }}"
+
+      - name: pre installed applications
+        run: |
+          docker --version
+          node --version
+          python --version
+          git --version
+          
+
 
 
 
