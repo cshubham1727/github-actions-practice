@@ -1,0 +1,22 @@
+name: manual input workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  input:
+  runs-on: ubuntu-latest
+
+
+  steps:
+    - name: Environment name
+      run: echo "${{ inputs.environment }}"
+   
