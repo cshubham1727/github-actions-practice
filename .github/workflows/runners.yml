@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: print os
         run: |
-          echo "The operating system is: ${{ os.runner }}"
+          echo "The operating system is: ${{ matrix.os }}"
 
       - name: runners hostname
         run: hostname
