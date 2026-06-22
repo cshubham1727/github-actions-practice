@@ -1,18 +1,22 @@
 name: PR pipeline
 
 on:
-  pull_request:
-    types: [opened,synchronize] 
+  schedule:
+    - cron: '5 * * * *'
 
-    branches: 
-      - main
+  # pull_request:
+  #   types: [opened,synchronize] 
+
+  #branches: 
+  #    - main
 
 jobs:
 
   PR-check:  
     runs-on: ubuntu-latest
-
+# new line added
     steps:
       - name: PR check for main branch
-        run: echo "PR check running for branch: ${{ github.head_ref }}"
+        run: |
+          echo "PR check running for branch:${{ github.head_ref }}"
 
