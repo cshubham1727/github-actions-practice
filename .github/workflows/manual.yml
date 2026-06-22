@@ -1,0 +1,23 @@
+# Add an input that asks for an environment and and print the value in step
+name: manual input workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  print-input:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print selected environment
+        run: |
+          echo "Selected environment: ${{ inputs.environment }}"
+   
