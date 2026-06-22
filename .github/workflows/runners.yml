@@ -17,14 +17,15 @@ jobs:
 
     steps:
       - name: print os
-        run: |
-          echo "The operating system is: ${{ matrix.os }}"
+        run: | 
+         echo "The operating system is: ${{ matrix.os }}"
 
       - name: runners hostname
         run: hostname
 
-      - name: |
-          echo "The current user running the job is: ${{ github.actor }}"
+      - name: 
+        run: | 
+         echo "The current user running the job is: ${{ github.actor }}"
 
 
 
