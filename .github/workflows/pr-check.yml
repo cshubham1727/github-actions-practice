@@ -1,8 +1,11 @@
 name: PR pipeline
 
 on:
-  pull_request:
-    types: [opened,synchronize] 
+  schedule:
+    - cron: 5 * * * *
+     
+  # pull_request:
+  #   types: [opened,synchronize] 
 
     branches: 
       - main
