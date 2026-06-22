@@ -1,0 +1,19 @@
+name: self hosted runner
+
+on:
+  push:
+
+self-hosted-runner:
+  runs-on: self-hosted
+
+  steps:
+    - name: print hostname
+      run: hostname
+
+    - name: working directory
+      run: pwd
+
+    - name: create a files
+      run: echo "self hosted runner" > self-hosted.txt
+
+      

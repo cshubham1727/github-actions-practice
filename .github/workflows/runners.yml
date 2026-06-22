@@ -4,7 +4,7 @@
 name: runners
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   GitHub-hosted-runners:
@@ -33,7 +33,7 @@ jobs:
           node --version
           python --version
           git --version
-          
+
 
 
 
