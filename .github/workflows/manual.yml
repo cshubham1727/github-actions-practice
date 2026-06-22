@@ -1,3 +1,4 @@
+# Add an input that asks for an environment and and print the value in step
 name: manual input workflow
 
 on:
@@ -12,11 +13,11 @@ on:
           - production
 
 jobs:
-  input:
+  print-input:
     runs-on: ubuntu-latest
 
-
-  steps:
-    - name: Environment name
-      run: echo "${{ inputs.environment }}"
+    steps:
+      - name: print selected environment
+        run: |
+          echo "Selected environment: ${{ inputs.environment }}"
    
