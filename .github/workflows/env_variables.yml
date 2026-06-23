@@ -22,6 +22,12 @@ jobs:
                echo "Environment is: $ENVIRONMENT"
                echo "Version is: $VERSION"
 
+          - name: context variables
+            run: |
+                echo "commit SHA: ${{github.sha}}"
+                echo "user running the job: ${{github.actor}}"
+
+
             
             
 
