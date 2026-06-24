@@ -3,6 +3,10 @@ name: smart-pipeline
 on:
     # push:
     workflow_dispatch:
+      inputs:
+        commit_message:
+          description: 'Commit message'
+          required: false
 
 jobs:
     lint:
@@ -27,7 +31,7 @@ jobs:
             - name: print branch name and commit message
               run: |
                 echo "the branch name is: ${{github.ref_name}}"
-                echo "the commit message is: ${{github.event.head_commit.message}}"
+                echo "the commit message is: ${{github.event.inputs.commit_message}}"
                 
                 
         

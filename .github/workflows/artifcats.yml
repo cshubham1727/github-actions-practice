@@ -32,6 +32,11 @@ jobs:
                 name: test-reports
                 path: reports/
 
+            - name: list the path of file
+              run: |
+                pwd
+                ls -R
+
             - name: verify downloaded file
               run: cat reports/logs.txt
 
