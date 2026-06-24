@@ -25,4 +25,4 @@ jobs:
               uses: docker/build-push-action@v7
               with:
                 push: true
-                tags: flask-app:latest
+                tags: cshubham1727/flask-app:latest
