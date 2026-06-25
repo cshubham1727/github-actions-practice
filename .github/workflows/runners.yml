@@ -1,0 +1,41 @@
+# create a workflow with 3 different jobs each on different os
+# In each job, print os name, runner's hostname, current user running the job
+
+name: runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  GitHub-hosted-runners:
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+  
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: print os
+        run: | 
+         echo "The operating system is: ${{ matrix.os }}"
+
+      - name: runners hostname
+        run: hostname
+
+      - name: current user logged in
+        run: | 
+         echo "The current user running the job is: ${{ github.actor }}"
+
+      - name: pre installed applications
+        run: |
+          docker --version
+          node --version
+          python --version
+          git --version
+
+
+
+
+
+

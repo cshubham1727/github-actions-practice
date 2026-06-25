@@ -1,0 +1,21 @@
+name: self hosted runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  self-hosted-runner:
+    runs-on: [self-hosted, my-linux-server]
+
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: print hostname
+        run: hostname
+
+      - name: working directory
+        run: pwd
+
+      - name: create a files
+        run: echo "self hosted runner" > self-hosted.txt
+

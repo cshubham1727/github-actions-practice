@@ -1,0 +1,32 @@
+name: Job outputs
+
+on:
+    workflow_dispatch:
+
+jobs:
+    generate_date:
+        runs-on: ubuntu-latest
+
+        outputs:
+            today: ${{steps.current_date.outputs.today}}
+
+        steps:
+            - id: current_date
+              run: |
+                echo "today=$(date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+                
+    
+    print_date:
+        runs-on: ubuntu-latest
+        needs: generate_date
+
+        steps:
+            - id: print_date
+              run: |
+                echo "Todays date is: ${{ needs.generate_date.outputs.today}}"
+
+
+
+
+
