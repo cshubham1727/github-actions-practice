@@ -19,7 +19,7 @@ jobs:
 
             - name: print PR author
               run: |
-                echo "User is: ${{ github.event.pull_request.user.login }}"
+                echo "PR author is: ${{ github.event.pull_request.user.login }}"
 
             - name: print source and target branch
               run: |
