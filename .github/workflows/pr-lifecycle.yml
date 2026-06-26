@@ -26,6 +26,7 @@ jobs:
                 echo "Source branch is ${{ github.head_ref }}"
                 echo "Target branch is: ${{ github.base_ref}}"
 #  you can use both the options or just use merged == true as well
+
             - name: PR is merged
               if: github.event.action == 'closed' &&  github.event.pull_request.merged == true
               run: |
