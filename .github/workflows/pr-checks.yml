@@ -29,11 +29,12 @@ jobs:
               run: |
                BRANCH_NAME="${{ github.head_ref }}"
                if [[ "$BRANCH_NAME" =~ ^(feature|fix|docs)\/.+$ ]]; then
-                echo "Branch name is valid"
+                 echo "Branch name is valid"
                else
-                echo "Branch name is not valid"
-                echo "Branch name should start with 'feature/atleast-one-letter', 'fix/atleast-one-letter', 'docs/atleast-one-letter'"
-
+                 echo "Branch name is not valid"
+                 echo "Branch name should start with 'feature/atleast-one-letter', 'fix/atleast-one-letter', 'docs/atleast-one-letter'"
+                fi
+                
     pr-body-check:
         runs-on: ubuntu-latest
 
