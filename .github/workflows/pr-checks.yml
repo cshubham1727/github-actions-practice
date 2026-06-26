@@ -1,8 +1,14 @@
 name: PR Checks
 
 on:
+<<<<<<< HEAD
     pull_request:
         branches: [main]
+=======
+    # pull_request:
+    #     branches: [main]
+    workflow_dispatch:
+>>>>>>> dda2a6a (scheduled tasks added)
 
 jobs:
     file-size-check:
