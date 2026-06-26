@@ -1,0 +1,49 @@
+name: PR Checks
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    file-size-check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: check for files larger than 1 MB
+              run: |
+                LARGE_FILES=$(find . -type f -size +1M)
+                if [ -n $LARGE_FILES ]; then
+                 echo "the following files are greater than 1 MB"
+                 echo "$LARGE_FILES"
+                 exit 1
+                fi
+
+                echo "No oversized files found"
+
+    
+    branch-name-check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: validate branch name
+              run: |
+               BRANCH_NAME="${{ github.head_ref }}"
+               if [[ "$BRANCH_NAME" =~ ^(feature|fix|docs)\/.+$ ]]; then
+                 echo "Branch name is valid"
+               else
+                 echo "Branch name is not valid"
+                 echo "Branch name should start with 'feature/atleast-one-letter', 'fix/atleast-one-letter', 'docs/atleast-one-letter'"
+                fi
+                
+    pr-body-check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: check PR description
+              run: |
+               PR_BODY="${{ github.action.pull_request.body }}"
+               if [[ -z "$PR_BODY" ]]; then
+                  echo "Warning! PR description is empty"
+               else
+                    echo "PR description exist"
+               fi
