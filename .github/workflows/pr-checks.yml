@@ -34,14 +34,14 @@ jobs:
                  echo "Branch name is not valid"
                  echo "Branch name should start with 'feature/atleast-one-letter', 'fix/atleast-one-letter', 'docs/atleast-one-letter'"
                 fi
-                
+
     pr-body-check:
         runs-on: ubuntu-latest
 
         steps:
             - name: check PR description
               run: |
-               PR_BODY="${{ github.action.pull_request.body }}"
+               PR_BODY="${{ github.event.pull_request.body }}"
                if [[ -z "$PR_BODY" ]]; then
                   echo "Warning! PR description is empty"
                else
