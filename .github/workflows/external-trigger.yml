@@ -1,0 +1,20 @@
+name: External Trigger Workflow
+
+on:
+    repository_dispatch:
+        types:
+           - deploy_request
+
+jobs:
+  external-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print event type
+        run: |
+          echo "Repository dispatch event received"
+
+      - name: Print deployment environment
+        run: |
+          echo "Environment:"
+          echo "${{ github.event.client_payload.environment }}"
